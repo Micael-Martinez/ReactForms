@@ -12,20 +12,10 @@ const Note = ({id, content, date, important}) => {
     )
 }
 export default function App() {
-    const listNotes = [
-        {
-            id: 1,
-        },
-        {
-            id:2
-        },
-        {
-            id:3
-        }
-    ]
+
 
     //Al useState de abajo le puedo mandar como parametro listNotes si quiero que se inicie por defecto como seria en una base de datos que traigo el array de objetos, o vacio [].
-    const [notes, setNotes] = useState(listNotes);
+    const [notes, setNotes] = useState([]);
     const [newNote, setNewNote] = useState('');
     const [showAll, setShowAll] = useState(true);
 
@@ -33,7 +23,7 @@ export default function App() {
         setNewNote(event.target.value)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         //Creo un objeto y lo añado al estado notes
         const noteToAddToState = {
